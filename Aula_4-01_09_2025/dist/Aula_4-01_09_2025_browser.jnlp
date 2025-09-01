@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Aula_4-01_09_2025_browser.jnlp">
+  <information>
+    <title>Aula_4-01_09_2025</title>
+    <vendor>2830482411021</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Aula_4-01_09_2025.jar" size="8930" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="aula_4.pkg01_09_2025.Aula_401_09_2025"  name="Aula_4-01_09_2025" >
+  </applet-desc>
+  <update check="always"/>
+</jnlp>
