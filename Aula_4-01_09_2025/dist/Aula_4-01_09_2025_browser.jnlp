@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Aula_4-01_09_2025.jar" size="8930" download="eager" />
+    <jar href="Aula_4-01_09_2025.jar" size="23394" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="aula_4.pkg01_09_2025.Aula_401_09_2025"  name="Aula_4-01_09_2025" >
   </applet-desc>
