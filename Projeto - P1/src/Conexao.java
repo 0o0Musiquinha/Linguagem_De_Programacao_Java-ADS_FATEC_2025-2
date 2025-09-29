@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,11 +16,11 @@ import java.sql.DriverManager;
 public class Conexao {
     public Connection getConexao(){
         try{
-            Connection conn = DriverManager.getConnection(/*URL:*/"jdbc:mysql://localhost:3306/bancojava?useTimezone=true&serverTimezone=UTC", /*USER:*/"root", /*PASSWORD:*/"");
+            Connection conn = DriverManager.getConnection(/*URL:*/"jdbc:mysql://localhost:3306/Banco_P1?useTimezone=true&serverTimezone=UTC", /*USER:*/"root", /*PASSWORD:*/"root");
             System.out.println("Conexão realizada com sucesso!");
             return conn;
         }
-        catch(Exception e){
+        catch(SQLException e){
             System.out.println("Erro ao conectar no BD"+ e.getMessage());
             return null;
         }

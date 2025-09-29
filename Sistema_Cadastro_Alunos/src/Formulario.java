@@ -154,7 +154,9 @@ public class Formulario extends javax.swing.JFrame {
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         Aluno a = new Aluno(txt_nome.getText(), Integer.parseInt(txt_idade.getText()), (String)cmb_curso.getSelectedItem());
         if(alterar){
+            tabela.removeRow(linha);
             tabela.insertRow(linha,a.obterDados());
+            //tabela.insertRow(1, a.obterDados());
             
         } else{
             tabela.addRow(a.obterDados());

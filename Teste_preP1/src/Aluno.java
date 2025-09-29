@@ -6,20 +6,24 @@
 
 /**
  *
- * @author 2830482411021
+ * @author fan25
  */
-public class Pessoa {
-    private int id;
-    private String nome;
-    private String sexo;
-    private String idioma;
+public class Aluno {
+    int ra;
+    float media;
+    int faltas;
+    String sexo;
+    String idioma;
     
     
-    public int getId(){
-        return id;
+    public int getRa(){
+        return ra;
     }
-    public String getNome(){
-        return nome;
+    public float getMedia(){
+        return media;
+    }
+    public int getFaltas(){
+        return faltas;
     }
     public String getSexo(){
         return sexo;
@@ -28,11 +32,14 @@ public class Pessoa {
         return idioma;
     }
     
-    public void setID(int id){
-        this.id = id;
+    public void setRa(int ra){
+        this.ra = ra;
     }
-    public void setNome(String nome){
-        this.nome = nome;
+    public void setMedia(float media){
+        this.media = media;
+    }
+    public void setFaltas(int faltas){
+        this.faltas = faltas;
     }
     public void setSexo(String sexo){
         this.sexo = sexo;

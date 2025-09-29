@@ -30,6 +30,16 @@ public class CRUD extends javax.swing.JFrame {
     private void initComponents() {
 
         Sexo = new javax.swing.ButtonGroup();
+        lbl_sexo1 = new javax.swing.JLabel();
+        cmb_idioma1 = new javax.swing.JComboBox<>();
+        rdo_masculino1 = new javax.swing.JRadioButton();
+        btn_salvar1 = new javax.swing.JButton();
+        txt_nome1 = new javax.swing.JTextField();
+        lbl_idioma1 = new javax.swing.JLabel();
+        rdo_feminino1 = new javax.swing.JRadioButton();
+        lbl_nome1 = new javax.swing.JLabel();
+        lbl_form2 = new javax.swing.JLabel();
+        Sexo2 = new javax.swing.ButtonGroup();
         txt_nome = new javax.swing.JTextField();
         lbl_nome = new javax.swing.JLabel();
         lbl_sexo = new javax.swing.JLabel();
@@ -38,6 +48,65 @@ public class CRUD extends javax.swing.JFrame {
         rdo_feminino = new javax.swing.JRadioButton();
         cmb_idioma = new javax.swing.JComboBox<>();
         btn_salvar = new javax.swing.JButton();
+        lbl_form1 = new javax.swing.JLabel();
+        lbl_form3 = new javax.swing.JLabel();
+        txt_id = new javax.swing.JTextField();
+        lbl_id = new javax.swing.JLabel();
+        btn_consultar = new javax.swing.JButton();
+        txt_Nome = new javax.swing.JTextField();
+        lbl_nome_form2 = new javax.swing.JLabel();
+        lbl_sexo_form2 = new javax.swing.JLabel();
+        lbl_idioma_form2 = new javax.swing.JLabel();
+        btn_atualizar = new javax.swing.JButton();
+        txt_ID = new javax.swing.JTextField();
+        lbl_id1 = new javax.swing.JLabel();
+        btn_excluir = new javax.swing.JButton();
+        rdo_masculino2 = new javax.swing.JRadioButton();
+        rdo_feminino2 = new javax.swing.JRadioButton();
+        cmb_idioma2 = new javax.swing.JComboBox<>();
+
+        lbl_sexo1.setText("Sexo:");
+
+        cmb_idioma1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Português", "Inglês", "Mandarim", "Aramaico", "Francês", "Espanhol", "Alemão" }));
+
+        Sexo.add(rdo_masculino1);
+        rdo_masculino1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rdo_masculino1.setText("Masculino");
+        rdo_masculino1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_masculino1ActionPerformed(evt);
+            }
+        });
+
+        btn_salvar1.setText("Salvar");
+        btn_salvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvar1ActionPerformed(evt);
+            }
+        });
+
+        txt_nome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nome1ActionPerformed(evt);
+            }
+        });
+
+        lbl_idioma1.setText("Idioma: ");
+
+        Sexo.add(rdo_feminino1);
+        rdo_feminino1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rdo_feminino1.setText("Feminino");
+        rdo_feminino1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_feminino1ActionPerformed(evt);
+            }
+        });
+
+        lbl_nome1.setText("Nome:");
+
+        lbl_form2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_form2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_form2.setText("CADASTRAR");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,7 +140,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
 
-        cmb_idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Português", "Inglês", "Mandarim", "Aramaico", "Francês", "Espanhol", "Alemão" }));
+        cmb_idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Português", "Inglês", "Mandarim", "Aramaico", "Francês", "Espanhol", "Alemão" }));
 
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,17 +149,91 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
 
+        lbl_form1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_form1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_form1.setText("CADASTRAR");
+
+        lbl_form3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_form3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_form3.setText("EDITAR E EXCLUIR PESSOA");
+
+        txt_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_idActionPerformed(evt);
+            }
+        });
+
+        lbl_id.setText("ID: ");
+
+        btn_consultar.setText("Consultar");
+        btn_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultarActionPerformed(evt);
+            }
+        });
+
+        txt_Nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NomeActionPerformed(evt);
+            }
+        });
+
+        lbl_nome_form2.setText("Nome:");
+
+        lbl_sexo_form2.setText("Sexo: ");
+
+        lbl_idioma_form2.setText("Idioma:");
+
+        btn_atualizar.setText("Atualizar");
+        btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atualizarActionPerformed(evt);
+            }
+        });
+
+        txt_ID.setEditable(false);
+        txt_ID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_IDActionPerformed(evt);
+            }
+        });
+
+        lbl_id1.setText("ID: ");
+
+        btn_excluir.setText("Excluir");
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
+
+        Sexo2.add(rdo_masculino2);
+        rdo_masculino2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rdo_masculino2.setText("Masculino");
+        rdo_masculino2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_masculino2ActionPerformed(evt);
+            }
+        });
+
+        Sexo2.add(rdo_feminino2);
+        rdo_feminino2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rdo_feminino2.setText("Feminino");
+        rdo_feminino2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_feminino2ActionPerformed(evt);
+            }
+        });
+
+        cmb_idioma2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Português", "Inglês", "Mandarim", "Aramaico", "Francês", "Espanhol", "Alemão" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_idioma)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmb_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_sexo)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btn_salvar)
@@ -102,28 +245,105 @@ public class CRUD extends javax.swing.JFrame {
                                     .addComponent(rdo_masculino)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(rdo_feminino))
-                                .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(138, Short.MAX_VALUE))
+                                .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_idioma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmb_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_form1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_form3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_excluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_atualizar))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbl_idioma_form2)
+                                        .addComponent(lbl_sexo_form2)
+                                        .addComponent(lbl_nome_form2))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(rdo_masculino2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(rdo_feminino2))
+                                        .addComponent(cmb_idioma2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lbl_id1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(60, 60, 60))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lbl_id)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btn_consultar))))))
+                .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_nome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_sexo)
-                    .addComponent(rdo_feminino)
-                    .addComponent(rdo_masculino))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_idioma)
-                    .addComponent(cmb_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btn_salvar)
-                .addContainerGap(121, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_form1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_nome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_sexo)
+                            .addComponent(rdo_feminino)
+                            .addComponent(rdo_masculino))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_idioma)
+                            .addComponent(cmb_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_salvar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_form3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_id)
+                                    .addComponent(btn_consultar))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_id1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_nome_form2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(rdo_feminino2)
+                                .addComponent(rdo_masculino2))
+                            .addComponent(lbl_sexo_form2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_idioma_form2)
+                            .addComponent(cmb_idioma2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_atualizar)
+                            .addComponent(btn_excluir))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,6 +389,99 @@ public class CRUD extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_salvarActionPerformed
 
+    private void txt_nome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nome1ActionPerformed
+
+    private void rdo_masculino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_masculino1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_masculino1ActionPerformed
+
+    private void rdo_feminino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_feminino1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_feminino1ActionPerformed
+
+    private void btn_salvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_salvar1ActionPerformed
+
+    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idActionPerformed
+
+    private void txt_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NomeActionPerformed
+
+    private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
+        int idPessoa = Integer.parseInt(txt_id.getText());
+        PessoaDAO pDAO = new PessoaDAO();
+        
+        Pessoa p = pDAO.getPessoa(idPessoa);
+        
+        //System.out.println("Etapa 1");
+        if(p == null){
+            //System.out.println("Etapa 2");
+            limparFormularioAE();
+            JOptionPane.showMessageDialog(this, "Pessoa não encontrada!");
+        } else{
+            //System.out.println("Etapa 3");
+            txt_ID.setText(String.valueOf(p.getId()));
+            txt_Nome.setText(p.getNome());
+            //txt_sexo.setText(p.getSexo());
+            if(p.getSexo().equals("M")){
+                rdo_masculino2.setSelected(true);
+            } else{
+                rdo_feminino2.setSelected(true);
+            }
+            //txt_idioma.setText(p.getIdioma());
+            cmb_idioma2.setSelectedItem(p.getIdioma());
+        }
+        
+    }//GEN-LAST:event_btn_consultarActionPerformed
+
+    private void txt_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_IDActionPerformed
+
+    private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
+        String sexo = null;
+        
+        if(rdo_masculino2.isSelected()){
+            sexo = "M";
+        } else if(rdo_feminino2.isSelected()){
+            sexo = "F";
+        }
+        
+        Pessoa p = new Pessoa();
+        p.setID(Integer.parseInt(txt_id.getText()));
+        p.setNome(txt_Nome.getText());
+        p.setSexo(sexo);
+        p.setIdioma(cmb_idioma2.getSelectedItem().toString());
+        
+        PessoaDAO pDAO = new PessoaDAO();
+        pDAO.editar(p);
+        limparFormularioAE();
+    }//GEN-LAST:event_btn_atualizarActionPerformed
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?", "Exclusão", JOptionPane.YES_NO_OPTION);
+        
+        if(resposta == JOptionPane.YES_NO_OPTION){
+            PessoaDAO pDAO = new PessoaDAO();
+            pDAO.excluir(Integer.parseInt(txt_ID.getText()));
+            limparFormularioAE();
+        }
+    }//GEN-LAST:event_btn_excluirActionPerformed
+
+    private void rdo_masculino2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_masculino2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_masculino2ActionPerformed
+
+    private void rdo_feminino2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_feminino2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdo_feminino2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -209,16 +522,54 @@ public class CRUD extends javax.swing.JFrame {
         Sexo.clearSelection();
         cmb_idioma.setSelectedIndex(0);
     }
+    
+    /**
+     *Método para limpar os campos do Formulario de ALTERAÇÂO (A) e
+     * EXCLUSÃO (E).
+     */
+    public void limparFormularioAE(){
+        txt_id.setText("");
+        txt_ID.setText("");
+        txt_Nome.setText("");
+        Sexo2.clearSelection();
+        cmb_idioma2.setSelectedIndex(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Sexo;
+    private javax.swing.ButtonGroup Sexo2;
+    private javax.swing.JButton btn_atualizar;
+    private javax.swing.JButton btn_consultar;
+    private javax.swing.JButton btn_excluir;
     private javax.swing.JButton btn_salvar;
+    private javax.swing.JButton btn_salvar1;
     private javax.swing.JComboBox<String> cmb_idioma;
+    private javax.swing.JComboBox<String> cmb_idioma1;
+    private javax.swing.JComboBox<String> cmb_idioma2;
+    private javax.swing.JLabel lbl_form1;
+    private javax.swing.JLabel lbl_form2;
+    private javax.swing.JLabel lbl_form3;
+    private javax.swing.JLabel lbl_id;
+    private javax.swing.JLabel lbl_id1;
     private javax.swing.JLabel lbl_idioma;
+    private javax.swing.JLabel lbl_idioma1;
+    private javax.swing.JLabel lbl_idioma_form2;
     private javax.swing.JLabel lbl_nome;
+    private javax.swing.JLabel lbl_nome1;
+    private javax.swing.JLabel lbl_nome_form2;
     private javax.swing.JLabel lbl_sexo;
+    private javax.swing.JLabel lbl_sexo1;
+    private javax.swing.JLabel lbl_sexo_form2;
     private javax.swing.JRadioButton rdo_feminino;
+    private javax.swing.JRadioButton rdo_feminino1;
+    private javax.swing.JRadioButton rdo_feminino2;
     private javax.swing.JRadioButton rdo_masculino;
+    private javax.swing.JRadioButton rdo_masculino1;
+    private javax.swing.JRadioButton rdo_masculino2;
+    private javax.swing.JTextField txt_ID;
+    private javax.swing.JTextField txt_Nome;
+    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nome;
+    private javax.swing.JTextField txt_nome1;
     // End of variables declaration//GEN-END:variables
 }
