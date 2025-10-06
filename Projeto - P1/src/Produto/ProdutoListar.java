@@ -1,5 +1,4 @@
-
-import Produto.ProdutoCadastrar;
+package Produto;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,12 +10,12 @@ import Produto.ProdutoCadastrar;
  *
  * @author 2830482411021
  */
-public class Menu extends javax.swing.JFrame {
+public class ProdutoListar extends javax.swing.JFrame {
 
     /**
-     * Creates new form CRUD
+     * Creates new form ListarProduto
      */
-    public Menu() {
+    public ProdutoListar() {
         initComponents();
     }
 
@@ -29,29 +28,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        menu_cliente = new javax.swing.JMenu();
-        promenu_cadastrar = new javax.swing.JMenuItem();
-        menu_fornecedor = new javax.swing.JMenu();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        menu_cliente.setText("Produto");
-
-        promenu_cadastrar.setText("Cadastrar");
-        promenu_cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                promenu_cadastrarActionPerformed(evt);
-            }
-        });
-        menu_cliente.add(promenu_cadastrar);
-
-        jMenuBar1.add(menu_cliente);
-
-        menu_fornecedor.setText("Fornecedor");
-        jMenuBar1.add(menu_fornecedor);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,16 +38,11 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void promenu_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_promenu_cadastrarActionPerformed
-        ProdutoCadastrar cadProduto = new ProdutoCadastrar();
-        cadProduto.setVisible(true);
-    }//GEN-LAST:event_promenu_cadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,13 +61,13 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -103,15 +75,11 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new ProdutoListar().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu menu_cliente;
-    private javax.swing.JMenu menu_fornecedor;
-    private javax.swing.JMenuItem promenu_cadastrar;
     // End of variables declaration//GEN-END:variables
 }

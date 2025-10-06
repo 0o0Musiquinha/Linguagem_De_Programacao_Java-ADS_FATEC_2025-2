@@ -1,7 +1,11 @@
+package DAO;
 
+
+import Produto.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,14 +30,15 @@ public class ProdutoDAO {
     public void cadastrar(Produto produto){
         String sql = "INSERT INTO produto (pro_nome, pro_desc, pro_precovenda, pro_qtdestoque) VALUES (?, ?, ?, ?);";
         try{
+            
             PreparedStatement stmt = conn.prepareStatement(/*Comando SQL: */ sql);
-            stmt.setInt(1, produto.getCodigo());
-            stmt.setString(2, produto.getNome());
-            stmt.setString(3, produto.getDesc());
-            stmt.setFloat(4, produto.getPrecoVenda());
-            stmt.setInt(5, produto.getQtdEstoque());
+            stmt.setString(1, produto.getNome());
+            stmt.setString(2, produto.getDesc());
+            stmt.setFloat(3, produto.getPrecoVenda());
+            stmt.setInt(4, produto.getQtdEstoque());
             
             stmt.execute();
+            JOptionPane.showMessageDialog(null, "Produto Cadastrado com sucesso!!", "Cadastro", 1);
         }catch(SQLException ex){
             System.out.println("Erro ao Cadastrar o produto!! "+ ex.getMessage());
         }

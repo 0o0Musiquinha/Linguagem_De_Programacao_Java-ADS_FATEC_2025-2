@@ -1,3 +1,7 @@
+package Produto;
+
+import DAO.ProdutoDAO;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,15 +12,22 @@
  *
  * @author 2830482411021
  */
-public class CadastrarProduto extends javax.swing.JFrame {
+public class ProdutoCadastrar extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastrarProduto
      */
-    public CadastrarProduto() {
+    public ProdutoCadastrar() {
         initComponents();
     }
-
+    
+    public void limparFormulario(){
+        txt_nome.setText("");
+        txt_desc.setText("");
+        txt_qtdEstoque.setText("");
+        txt_preco.setText("");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +48,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lbl_desc = new javax.swing.JLabel();
         lbl_nome1 = new javax.swing.JLabel();
         btn_cadastrar = new javax.swing.JButton();
+        btn_limpar = new javax.swing.JButton();
+        btn_listarProdutos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -89,32 +102,53 @@ public class CadastrarProduto extends javax.swing.JFrame {
             }
         });
 
+        btn_limpar.setText("Limpar");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparActionPerformed(evt);
+            }
+        });
+
+        btn_listarProdutos.setText("Listar Produtos");
+        btn_listarProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_listarProdutosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_cadastrar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lbl_desc)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_nome)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txt_nome))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_qtdEstoque)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txt_qtdEstoque))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_preco)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(lbl_nome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_cadastrar))
+                            .addComponent(lbl_desc, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_nome)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_nome))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_qtdEstoque)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_qtdEstoque))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_preco)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_nome1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(btn_listarProdutos)))
                 .addContainerGap(205, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,9 +172,14 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addComponent(lbl_desc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_cadastrar)
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_limpar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_cadastrar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_listarProdutos)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,11 +202,22 @@ public class CadastrarProduto extends javax.swing.JFrame {
         produto.setNome(txt_nome.getText());
         produto.setPrecoVenda(Float.parseFloat(txt_preco.getText()));
         produto.setQtdEstoque(Integer.parseInt(txt_qtdEstoque.getText()));
+        produto.setDesc(txt_desc.getText());
         
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.cadastrar(produto);
         
+        limparFormulario();
     }//GEN-LAST:event_btn_cadastrarActionPerformed
+
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+        limparFormulario();
+    }//GEN-LAST:event_btn_limparActionPerformed
+
+    private void btn_listarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listarProdutosActionPerformed
+        ProdutoListar listProduto = new ProdutoListar();
+        listProduto.setVisible(true);
+    }//GEN-LAST:event_btn_listarProdutosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,26 +236,29 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoCadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoCadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoCadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoCadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastrarProduto().setVisible(true);
+                new ProdutoCadastrar().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastrar;
+    private javax.swing.JButton btn_limpar;
+    private javax.swing.JButton btn_listarProdutos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_desc;
     private javax.swing.JLabel lbl_nome;
