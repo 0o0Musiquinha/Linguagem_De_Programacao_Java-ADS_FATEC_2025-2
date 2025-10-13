@@ -44,22 +44,41 @@ public class ItemNotaDAO {
 
             JOptionPane.showMessageDialog(null, "Item da Nota Cadastrado com sucesso!!", "Cadastro", 1);
             
-            String sqlSelect = "SELECT tip_codigo FROM nota WHERE nta_codigo = ?;";
+            String sqlSelect = "SELECT tip_codigo FROM notas WHERE nta_codigo = ?;";
             try{
                 PreparedStatement stmtSelect = conn.prepareStatement(sqlSelect, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                stmtSelect.setInt(1, itemNota.getNta_Codigo().getCodigo());
                 ResultSet rs = stmtSelect.executeQuery();
+                rs.first();
                 
+                //JOptionPane.showMessageDialog(null, "Busca pelo tipo de Nota Realizada com sucesso!!", "Busca Concluida", 1);
                 String sqlUpdate;
                 
+                /*String sqlSelectQuantidade = "SELECT pro_quantidade FROM produto WHERE pro_codigo = ?;";
+                try{
+                    PreparedStatement stmtSelectQuantidade = conn.prepareStatement(sqlSelect, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                    stmtSelectQuantidade.setInt(1, itemNota.getPro_Codigo().getCodigo());
+                    ResultSet rsQuantidade = stmtSelectQuantidade.executeQuery();
+                    rs.first();
+                    
+                } catch(SQLException ex){
+                    System.out.println("Erro ao pesquisar a quantidade do produto!! "+ ex.getMessage());
+                }*/
+                
                 if(rs.getInt("tip_codigo") == 1){
-                    sqlUpdate = "UPDATE produtos SET pro_qtdestoque = (pro_qtdestoque + ?) WHERE pro_codigo = ?;";
+                    sqlUpdate = "UPDATE produto SET pro_qtdestoque = pro_qtdestoque + ? WHERE pro_codigo = ?;";
+                    JOptionPane.showMessageDialog(null, "Busca pelo tipo de Nota Realizada com sucesso!! 3", "Busca", 1);
                     
                 } else{
-                    sqlUpdate = "UPDATE produtos SET pro_qtdestoque = (pro_qtdestoque - ?) WHERE pro_codigo = ?;";
+                    sqlUpdate = "UPDATE produto SET pro_qtdestoque = pro_qtdestoque - ? WHERE pro_codigo = ?;";
+                    //JOptionPane.showMessageDialog(null, "Busca pelo tipo de Nota Realizada com sucesso!! 4", "Busca", 1);
+                    
                 }
                 try{
                     PreparedStatement stmtUpdate = conn.prepareStatement(sqlUpdate, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-
+                    stmtUpdate.setInt(1, itemNota.getQuantidade());
+                    stmtUpdate.setInt(2, itemNota.getPro_Codigo().getCodigo());
+                    
                     stmtUpdate.execute();
                     
                     JOptionPane.showMessageDialog(null, "Quantidade no Produto Atualizada com Sucesso!!", "Atualização", 1);
@@ -79,7 +98,8 @@ public class ItemNotaDAO {
         String sql = "SELECT itm_codigo, itm_quantidade, pro_nome, nta_codigo "
                 + "FROM itemNota "
                     + "INNER JOIN produto USING(pro_codigo) "
-                    + "INNER JOIN notas USING (nta_codigo);";
+                    + "INNER JOIN notas USING (nta_codigo)"
+                + "ORDER BY itm_codigo;";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = stmt.executeQuery();

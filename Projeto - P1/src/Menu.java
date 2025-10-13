@@ -38,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         menu_barra = new javax.swing.JMenuBar();
         menu_cliente = new javax.swing.JMenu();
         promenu_cadastrar = new javax.swing.JMenuItem();
@@ -58,6 +59,8 @@ public class Menu extends javax.swing.JFrame {
         opcmenu_sair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/HTTYD_Menu.jpg"))); // NOI18N
 
         menu_cliente.setText("Produto");
 
@@ -177,11 +180,16 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 407, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 47, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 16, Short.MAX_VALUE))
         );
 
         pack();
@@ -284,6 +292,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem formenu_listar;
     private javax.swing.JMenuItem itmmenu_cadastrar;
     private javax.swing.JMenuItem itmmenu_listar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

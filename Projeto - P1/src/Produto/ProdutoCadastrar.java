@@ -2,6 +2,7 @@ package Produto;
 
 import DAO.ProdutoDAO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -190,15 +191,23 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
 
     private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
         Produto produto = new Produto();
-        produto.setNome(txt_nome.getText());
-        produto.setPrecoVenda(Float.parseFloat(txt_preco.getText()));
-        produto.setQtdEstoque(Integer.parseInt(txt_qtdEstoque.getText()));
-        produto.setDesc(txt_desc.getText());
         
-        ProdutoDAO produtoDAO = new ProdutoDAO();
-        produtoDAO.cadastrar(produto);
+        if(!txt_nome.getText().equals("") && !txt_preco.getText().equals("") && !txt_qtdEstoque.getText().equals("") && !txt_desc.getText().equals("")){
+            produto.setNome(txt_nome.getText());
+            produto.setPrecoVenda(Float.parseFloat(txt_preco.getText()));
+            produto.setQtdEstoque(Integer.parseInt(txt_qtdEstoque.getText()));
+            produto.setDesc(txt_desc.getText());
+
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            produtoDAO.cadastrar(produto);
+            
+            limparFormulario();
+        } else{
+            JOptionPane.showMessageDialog(null, "É necessário preencher todos os campos para cadastrar o Produto!!", "Campos em Branco!!", JOptionPane.OK_OPTION);
+        }
         
-        limparFormulario();
+        
+        
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
