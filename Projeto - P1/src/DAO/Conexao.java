@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class Conexao {
     public Connection getConexao(){
         try{
-            Connection conn = DriverManager.getConnection(/*URL:*/"jdbc:mysql://localhost:3306/Banco_P1?useTimezone=true&serverTimezone=UTC", /*USER:*/"root", /*PASSWORD:*/"root");
+            Connection conn = DriverManager.getConnection(/*URL:*/"jdbc:mysql://localhost:3306/Banco_P1?useTimezone=true&serverTimezone=UTC", /*USER:*/"root", /*PASSWORD:*/"");
             System.out.println("Conexão realizada com sucesso!");
             return conn;
         }

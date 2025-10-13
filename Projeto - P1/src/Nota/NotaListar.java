@@ -1,25 +1,24 @@
-package Produto;
-
-import DAO.ProdutoDAO;
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Nota;
+
+import DAO.NotaDAO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author 2830482411021
+ * @author fan25
  */
-public class ProdutoListar extends javax.swing.JFrame {
+public class NotaListar extends javax.swing.JFrame {
 
     /**
-     * Creates new form ListarProduto
+     * Creates new form NotaListar
      */
-    public ProdutoListar() {
+    public NotaListar() {
         initComponents();
         preencherTabela();
     }
@@ -35,23 +34,24 @@ public class ProdutoListar extends javax.swing.JFrame {
 
         lbl_Tabela = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_produtos = new javax.swing.JTable();
+        tbl_notas = new javax.swing.JTable();
         btn_refresh = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lbl_Tabela.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        lbl_Tabela.setText("Relatorio dos Produtos");
+        lbl_Tabela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Tabela.setText("Relatorio das Notas");
 
-        tbl_produtos.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_notas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Produto", "Descrição", "Preço de Venda", "Qtd Estoque"
+                "Código", "Data", "Cliente", "Fornecedor", "Tipo de Nota"
             }
         ));
-        jScrollPane1.setViewportView(tbl_produtos);
+        jScrollPane1.setViewportView(tbl_notas);
 
         btn_refresh.setText("Refresh");
         btn_refresh.addActionListener(new java.awt.event.ActionListener() {
@@ -67,15 +67,15 @@ public class ProdutoListar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(87, 87, 87)
-                            .addComponent(lbl_Tabela))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_refresh)
-                        .addGap(188, 188, 188)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btn_refresh)
+                                .addGap(188, 188, 188)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lbl_Tabela, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,9 +93,9 @@ public class ProdutoListar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_refreshActionPerformed
-        DefaultTableModel tabelaProdutos = (DefaultTableModel) tbl_produtos.getModel();
-        tabelaProdutos.setRowCount(0);
-        
+        DefaultTableModel tabelaNotas = (DefaultTableModel) tbl_notas.getModel();
+        tabelaNotas.setRowCount(0);
+
         preencherTabela();
     }//GEN-LAST:event_btn_refreshActionPerformed
 
@@ -116,50 +116,49 @@ public class ProdutoListar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotaListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotaListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotaListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotaListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProdutoListar().setVisible(true);
+                new NotaListar().setVisible(true);
             }
         });
     }
-    
     public void preencherTabela(){
-        ProdutoDAO pDAO = new ProdutoDAO();
-        List<Produto> listaProdutos = pDAO.getProdutos();
+        NotaDAO notaDAO = new NotaDAO();
+        List<Nota> listaNotas = notaDAO.getNotas();
         
-        DefaultTableModel tabelaProdutos = (DefaultTableModel) tbl_produtos.getModel();
+        DefaultTableModel tabelaNotas = (DefaultTableModel) tbl_notas.getModel();
         
         //Agora, precisamos percorrer a lista de pessoas que foi consutlta e adicionar na tabela:
         //DUVIDA!!!"Usar Operação Funcional" --> listaProdutos.stream().map((produto) -> new Object[]{
-        for(Produto produto: listaProdutos){
+        for(Nota notas: listaNotas){
             Object[] obj = new Object[]{
-                produto.getCodigo(),
-                produto.getNome(),
-                produto.getDesc(),
-                produto.getPrecoVenda(),
-                produto.getQtdEstoque()
+                notas.getCodigo(),
+                notas.getData(),
+                notas.getCli_Nome(),
+                notas.getFun_NomeFantasia(),
+                notas.getTip_Nome()
             };
-            tabelaProdutos.addRow(obj);
+            tabelaNotas.addRow(obj);
         }
         
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btn_refresh;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_Tabela;
-    private javax.swing.JTable tbl_produtos;
+    private javax.swing.JTable tbl_notas;
     // End of variables declaration//GEN-END:variables
 }

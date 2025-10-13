@@ -1,6 +1,7 @@
 package Produto;
 
 import DAO.ProdutoDAO;
+import javax.swing.JFrame;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,14 +43,14 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_desc = new javax.swing.JTextArea();
         txt_qtdEstoque = new javax.swing.JTextField();
-        txt_preco = new javax.swing.JTextField();
         lbl_preco = new javax.swing.JLabel();
         lbl_qtdEstoque = new javax.swing.JLabel();
         lbl_desc = new javax.swing.JLabel();
-        lbl_nome1 = new javax.swing.JLabel();
+        lbl_Cadastro = new javax.swing.JLabel();
         btn_cadastrar = new javax.swing.JButton();
         btn_limpar = new javax.swing.JButton();
         btn_listarProdutos = new javax.swing.JButton();
+        txt_preco = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,13 +76,6 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
             }
         });
 
-        txt_preco.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txt_preco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_precoActionPerformed(evt);
-            }
-        });
-
         lbl_preco.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_preco.setText("Preço de Venda:");
 
@@ -91,9 +85,9 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
         lbl_desc.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_desc.setText("Descrição:");
 
-        lbl_nome1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        lbl_nome1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_nome1.setText("Cadastro de Produtos");
+        lbl_Cadastro.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_Cadastro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Cadastro.setText("Cadastro de Produtos");
 
         btn_cadastrar.setText("Cadastrar");
         btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +109,8 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
                 btn_listarProdutosActionPerformed(evt);
             }
         });
+
+        txt_preco.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,17 +141,17 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txt_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_nome1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lbl_Cadastro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
+                        .addGap(263, 263, 263)
                         .addComponent(btn_listarProdutos)))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addComponent(lbl_nome1)
+                .addComponent(lbl_Cadastro)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_nome)
@@ -175,8 +171,7 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_limpar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_cadastrar)))
+                    .addComponent(btn_cadastrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_listarProdutos)
                 .addContainerGap(205, Short.MAX_VALUE))
@@ -192,10 +187,6 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
     private void txt_qtdEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qtdEstoqueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_qtdEstoqueActionPerformed
-
-    private void txt_precoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_precoActionPerformed
 
     private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
         Produto produto = new Produto();
@@ -217,6 +208,7 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
     private void btn_listarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listarProdutosActionPerformed
         ProdutoListar listProduto = new ProdutoListar();
         listProduto.setVisible(true);
+        
     }//GEN-LAST:event_btn_listarProdutosActionPerformed
 
     /**
@@ -260,9 +252,9 @@ public class ProdutoCadastrar extends javax.swing.JFrame {
     private javax.swing.JButton btn_limpar;
     private javax.swing.JButton btn_listarProdutos;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_Cadastro;
     private javax.swing.JLabel lbl_desc;
     private javax.swing.JLabel lbl_nome;
-    private javax.swing.JLabel lbl_nome1;
     private javax.swing.JLabel lbl_preco;
     private javax.swing.JLabel lbl_qtdEstoque;
     private javax.swing.JTextArea txt_desc;

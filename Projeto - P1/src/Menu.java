@@ -1,5 +1,14 @@
 
+import Cliente.ClienteCadastrar;
+import Cliente.ClienteListar;
+import Fornecedor.FornecedorCadastrar;
+import Fornecedor.FornecedorListar;
+import ItemNota.ItemNotaCadastrar;
+import ItemNota.ItemNotaListar;
+import Nota.NotaCadastrar;
+import Nota.NotaListar;
 import Produto.ProdutoCadastrar;
+import Produto.ProdutoListar;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,10 +38,24 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_barra = new javax.swing.JMenuBar();
         menu_cliente = new javax.swing.JMenu();
         promenu_cadastrar = new javax.swing.JMenuItem();
+        promenu_listar = new javax.swing.JMenuItem();
         menu_fornecedor = new javax.swing.JMenu();
+        formenu_cadastrar = new javax.swing.JMenuItem();
+        formenu_listar = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        climenu_cadastrar = new javax.swing.JMenuItem();
+        climenu_listar = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        ntamenu_cadastrar = new javax.swing.JMenuItem();
+        ntamenu_listar = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        itmmenu_cadastrar = new javax.swing.JMenuItem();
+        itmmenu_listar = new javax.swing.JMenuItem();
+        menu_opcoes = new javax.swing.JMenu();
+        opcmenu_sair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,22 +69,119 @@ public class Menu extends javax.swing.JFrame {
         });
         menu_cliente.add(promenu_cadastrar);
 
-        jMenuBar1.add(menu_cliente);
+        promenu_listar.setText("Listar");
+        promenu_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                promenu_listarActionPerformed(evt);
+            }
+        });
+        menu_cliente.add(promenu_listar);
+
+        menu_barra.add(menu_cliente);
 
         menu_fornecedor.setText("Fornecedor");
-        jMenuBar1.add(menu_fornecedor);
 
-        setJMenuBar(jMenuBar1);
+        formenu_cadastrar.setText("Cadastrar");
+        formenu_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                formenu_cadastrarActionPerformed(evt);
+            }
+        });
+        menu_fornecedor.add(formenu_cadastrar);
+
+        formenu_listar.setText("Listar");
+        formenu_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                formenu_listarActionPerformed(evt);
+            }
+        });
+        menu_fornecedor.add(formenu_listar);
+
+        menu_barra.add(menu_fornecedor);
+
+        jMenu1.setText("Cliente");
+
+        climenu_cadastrar.setText("Cadastrar");
+        climenu_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                climenu_cadastrarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(climenu_cadastrar);
+
+        climenu_listar.setText("Listar");
+        climenu_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                climenu_listarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(climenu_listar);
+
+        menu_barra.add(jMenu1);
+
+        jMenu2.setText("Nota");
+
+        ntamenu_cadastrar.setText("Cadastrar");
+        ntamenu_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ntamenu_cadastrarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ntamenu_cadastrar);
+
+        ntamenu_listar.setText("Listar");
+        ntamenu_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ntamenu_listarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ntamenu_listar);
+
+        menu_barra.add(jMenu2);
+
+        jMenu3.setText("Item Nota");
+
+        itmmenu_cadastrar.setText("Cadastrar");
+        itmmenu_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmmenu_cadastrarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(itmmenu_cadastrar);
+
+        itmmenu_listar.setText("Listar");
+        itmmenu_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmmenu_listarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(itmmenu_listar);
+
+        menu_barra.add(jMenu3);
+
+        menu_opcoes.setText("Opções");
+
+        opcmenu_sair.setText("Sair");
+        opcmenu_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcmenu_sairActionPerformed(evt);
+            }
+        });
+        menu_opcoes.add(opcmenu_sair);
+
+        menu_barra.add(menu_opcoes);
+
+        setJMenuBar(menu_barra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 407, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
+            .addGap(0, 47, Short.MAX_VALUE)
         );
 
         pack();
@@ -71,6 +191,55 @@ public class Menu extends javax.swing.JFrame {
         ProdutoCadastrar cadProduto = new ProdutoCadastrar();
         cadProduto.setVisible(true);
     }//GEN-LAST:event_promenu_cadastrarActionPerformed
+
+    private void promenu_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_promenu_listarActionPerformed
+        ProdutoListar listProduto = new ProdutoListar();
+        listProduto.setVisible(true);
+    }//GEN-LAST:event_promenu_listarActionPerformed
+
+    private void opcmenu_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcmenu_sairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_opcmenu_sairActionPerformed
+
+    private void formenu_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formenu_cadastrarActionPerformed
+        FornecedorCadastrar cadFornecedor = new FornecedorCadastrar();
+        cadFornecedor.setVisible(true);
+    }//GEN-LAST:event_formenu_cadastrarActionPerformed
+
+    private void formenu_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formenu_listarActionPerformed
+        FornecedorListar listFornecedor = new FornecedorListar();
+        listFornecedor.setVisible(true);
+    }//GEN-LAST:event_formenu_listarActionPerformed
+
+    private void climenu_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_climenu_cadastrarActionPerformed
+        ClienteCadastrar cadCliente = new ClienteCadastrar();
+        cadCliente.setVisible(true);
+    }//GEN-LAST:event_climenu_cadastrarActionPerformed
+
+    private void climenu_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_climenu_listarActionPerformed
+        ClienteListar listCliente = new ClienteListar();
+        listCliente.setVisible(true);
+    }//GEN-LAST:event_climenu_listarActionPerformed
+
+    private void ntamenu_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntamenu_cadastrarActionPerformed
+        NotaCadastrar cadNota = new NotaCadastrar();
+        cadNota.setVisible(true);
+    }//GEN-LAST:event_ntamenu_cadastrarActionPerformed
+
+    private void ntamenu_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntamenu_listarActionPerformed
+        NotaListar listNota = new NotaListar();
+        listNota.setVisible(true);
+    }//GEN-LAST:event_ntamenu_listarActionPerformed
+
+    private void itmmenu_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmmenu_cadastrarActionPerformed
+        ItemNotaCadastrar cadItem = new ItemNotaCadastrar();
+        cadItem.setVisible(true);
+    }//GEN-LAST:event_itmmenu_cadastrarActionPerformed
+
+    private void itmmenu_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmmenu_listarActionPerformed
+        ItemNotaListar listItem = new ItemNotaListar();
+        listItem.setVisible(true);
+    }//GEN-LAST:event_itmmenu_listarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,9 +278,23 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem climenu_cadastrar;
+    private javax.swing.JMenuItem climenu_listar;
+    private javax.swing.JMenuItem formenu_cadastrar;
+    private javax.swing.JMenuItem formenu_listar;
+    private javax.swing.JMenuItem itmmenu_cadastrar;
+    private javax.swing.JMenuItem itmmenu_listar;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar menu_barra;
     private javax.swing.JMenu menu_cliente;
     private javax.swing.JMenu menu_fornecedor;
+    private javax.swing.JMenu menu_opcoes;
+    private javax.swing.JMenuItem ntamenu_cadastrar;
+    private javax.swing.JMenuItem ntamenu_listar;
+    private javax.swing.JMenuItem opcmenu_sair;
     private javax.swing.JMenuItem promenu_cadastrar;
+    private javax.swing.JMenuItem promenu_listar;
     // End of variables declaration//GEN-END:variables
 }

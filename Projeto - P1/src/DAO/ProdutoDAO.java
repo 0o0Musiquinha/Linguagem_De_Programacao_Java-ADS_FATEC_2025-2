@@ -4,7 +4,10 @@ package DAO;
 import Produto.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /*
@@ -14,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 
 /**
- * Classe criada para ...
+ * Classe criada para realizar a camada de persistencia com o Banco de Dados referente ao Produto
  * @author Augusto Andrade da Silva
  * @since Classe criada em 29/09/2025
  */
@@ -38,6 +41,7 @@ public class ProdutoDAO {
             stmt.setInt(4, produto.getQtdEstoque());
             
             stmt.execute();
+            
             JOptionPane.showMessageDialog(null, "Produto Cadastrado com sucesso!!", "Cadastro", 1);
         }catch(SQLException ex){
             System.out.println("Erro ao Cadastrar o produto!! "+ ex.getMessage());
@@ -60,4 +64,28 @@ public class ProdutoDAO {
             System.out.println("Erro ao alterar o produto!! "+ ex.getMessage());
         }
     }//FIM do método 'alterar'
+    
+    public List<Produto> getProdutos(){
+        String sql = "SELECT * FROM produto;";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery();
+            List<Produto> listaProdutos = new ArrayList(); //Preparo uma lista de objetos que vou armazenar a consulta
+            
+            //Percorre rs e salva as informações dentro de um objeto Produto e depois adiciona na lista
+            while (rs.next()){
+                Produto produto = new Produto();
+                produto.setCodigo(rs.getInt("pro_codigo"));
+                produto.setNome(rs.getString("pro_nome"));
+                produto.setDesc(rs.getString("pro_desc"));
+                produto.setPrecoVenda(rs.getFloat("pro_precovenda"));
+                produto.setQtdEstoque(rs.getInt("pro_qtdestoque"));
+                listaProdutos.add(produto);
+            }
+            return listaProdutos;
+        } catch(SQLException ex){
+            System.out.println("Erro ao consultar todos os produtos: "+ ex.getMessage());
+            return null;
+        }
+    } //FIM do método 'getProdutos'
 }// Fim da Classe

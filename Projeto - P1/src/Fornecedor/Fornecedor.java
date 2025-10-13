@@ -12,5 +12,100 @@ package Fornecedor;
  * @since Classe criada em 29/09/2025
  */
 public class Fornecedor {
-
+    private int codigo;
+    private String nome;
+    private String nomeFantasia;
+    private String cnpj;
+    private String email;
+    private String telefone;
+    private String logradouro;
+    private String bairro;
+    private String municipio;
+    private String uf;
+    
+    //GET
+        public String toString(){
+            return this.codigo +" - "+ this.nome;
+        }
+    
+        public int getCodigo(){
+            return codigo;
+        }
+        
+        public String getNome(){
+            return nome;
+        }
+        
+        public String getNomeFantasia(){
+            return nomeFantasia;
+        }
+        
+        public String getCnpj(){
+            return cnpj;
+        }
+        
+        public String getEmail(){
+            return email;
+        }
+        
+        public String getTelefone(){
+            return telefone;
+        }
+        
+        public String getLogradouro(){
+            return logradouro;
+        }
+        
+        public String getBairro(){
+            return bairro;
+        }
+        
+        public String getMunicipio(){
+            return municipio;
+        }
+        
+        public String getUf(){
+            return uf;
+        }
+       
+    //SET
+        public void setCodigo(int codigo){
+            this.codigo = codigo;
+        }
+        
+        public void setNome(String nome){
+            this.nome = nome;
+        }
+        
+        public void setNomeFantasia(String nomeFantasia){
+            this.nomeFantasia = nomeFantasia;
+        }
+        
+        public void setCnpj(String cnpj){
+            this.cnpj = cnpj;
+        }
+        
+        public void setEmail(String email){
+            this.email = email;
+        }
+        
+        public void setTelefone(String telefone){
+            this.telefone = telefone;
+        }
+        
+        public void setLogradouro(String logradouro){
+            this.logradouro = logradouro;
+        }
+        
+        public void setBairro(String bairro){
+            this.bairro = bairro;
+        }
+        
+        public void setMunicipio(String municipio){
+            this.municipio = municipio;
+        }
+        
+        public void setUf (String uf){
+            this.uf = uf;
+        }
 }// Fim da Classe

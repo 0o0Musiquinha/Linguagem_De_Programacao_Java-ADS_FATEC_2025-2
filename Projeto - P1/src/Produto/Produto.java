@@ -7,18 +7,22 @@ package Produto;
  */
 
 /**
- * Classe criada para ...
+ * Classe criada para representar os produtos
  * @author Augusto Andrade da Silva
  * @since Classe criada em 29/09/2025
  */
 public class Produto {
-    int codigo;
-    String nome;
-    String desc;
-    float precoVenda;
-    int qtdEstoque;
+    private int codigo;
+    private String nome;
+    private String desc;
+    private float precoVenda;
+    private int qtdEstoque;
     
     //GET
+        public String toString(){
+            return this.codigo +" - "+ this.nome;
+        }
+    
         public int getCodigo(){
             return codigo;
         }

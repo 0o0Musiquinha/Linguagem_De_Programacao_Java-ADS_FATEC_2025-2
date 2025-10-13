@@ -1,25 +1,25 @@
-package Produto;
-
-import DAO.ProdutoDAO;
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Cliente;
+
+import DAO.ClienteDAO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author 2830482411021
+ * @author Augusto Andrade da Silva
+ * @since Classe criada em 12/10/2025
  */
-public class ProdutoListar extends javax.swing.JFrame {
+public class ClienteListar extends javax.swing.JFrame {
 
     /**
-     * Creates new form ListarProduto
+     * Creates new form ClienteListar
      */
-    public ProdutoListar() {
+    public ClienteListar() {
         initComponents();
         preencherTabela();
     }
@@ -33,25 +33,12 @@ public class ProdutoListar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_refresh = new javax.swing.JToggleButton();
         lbl_Tabela = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_produtos = new javax.swing.JTable();
-        btn_refresh = new javax.swing.JToggleButton();
+        tbl_clientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        lbl_Tabela.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        lbl_Tabela.setText("Relatorio dos Produtos");
-
-        tbl_produtos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Código", "Produto", "Descrição", "Preço de Venda", "Qtd Estoque"
-            }
-        ));
-        jScrollPane1.setViewportView(tbl_produtos);
 
         btn_refresh.setText("Refresh");
         btn_refresh.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +47,20 @@ public class ProdutoListar extends javax.swing.JFrame {
             }
         });
 
+        lbl_Tabela.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_Tabela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Tabela.setText("Relatorio dos Clientes");
+
+        tbl_clientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Código", "Nome", "Documento", "Email", "Telefone", "Logradouro", "Bairro", "Cidade", "UF", "Tipo Cliente"
+            }
+        ));
+        jScrollPane1.setViewportView(tbl_clientes);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,15 +68,15 @@ public class ProdutoListar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(87, 87, 87)
-                            .addComponent(lbl_Tabela))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_refresh)
-                        .addGap(188, 188, 188)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lbl_Tabela, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_refresh)
+                .addGap(473, 473, 473))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,18 +85,18 @@ public class ProdutoListar extends javax.swing.JFrame {
                 .addComponent(lbl_Tabela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_refresh)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_refreshActionPerformed
-        DefaultTableModel tabelaProdutos = (DefaultTableModel) tbl_produtos.getModel();
-        tabelaProdutos.setRowCount(0);
-        
+        DefaultTableModel tabelaClientes = (DefaultTableModel) tbl_clientes.getModel();
+        tabelaClientes.setRowCount(0);
+
         preencherTabela();
     }//GEN-LAST:event_btn_refreshActionPerformed
 
@@ -116,42 +117,46 @@ public class ProdutoListar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClienteListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClienteListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClienteListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProdutoListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClienteListar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProdutoListar().setVisible(true);
+                new ClienteListar().setVisible(true);
             }
         });
     }
     
     public void preencherTabela(){
-        ProdutoDAO pDAO = new ProdutoDAO();
-        List<Produto> listaProdutos = pDAO.getProdutos();
+        ClienteDAO clienteDAO = new ClienteDAO();
+        List<Cliente> listaClientes = clienteDAO.getClientes();
         
-        DefaultTableModel tabelaProdutos = (DefaultTableModel) tbl_produtos.getModel();
+        DefaultTableModel tabelaClientes = (DefaultTableModel) tbl_clientes.getModel();
         
         //Agora, precisamos percorrer a lista de pessoas que foi consutlta e adicionar na tabela:
         //DUVIDA!!!"Usar Operação Funcional" --> listaProdutos.stream().map((produto) -> new Object[]{
-        for(Produto produto: listaProdutos){
+        for(Cliente cliente: listaClientes){
             Object[] obj = new Object[]{
-                produto.getCodigo(),
-                produto.getNome(),
-                produto.getDesc(),
-                produto.getPrecoVenda(),
-                produto.getQtdEstoque()
+                cliente.getCodigo(),
+                cliente.getNome(),
+                cliente.getDocumento(),
+                cliente.getEmail(),
+                cliente.getTelefone(),
+                cliente.getLogradouro(),
+                cliente.getBairro(),
+                cliente.getMunicipio(),
+                cliente.getUf(),
+                cliente.getNomeTipo()
             };
-            tabelaProdutos.addRow(obj);
+            tabelaClientes.addRow(obj);
         }
         
     }
@@ -160,6 +165,6 @@ public class ProdutoListar extends javax.swing.JFrame {
     private javax.swing.JToggleButton btn_refresh;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_Tabela;
-    private javax.swing.JTable tbl_produtos;
+    private javax.swing.JTable tbl_clientes;
     // End of variables declaration//GEN-END:variables
 }

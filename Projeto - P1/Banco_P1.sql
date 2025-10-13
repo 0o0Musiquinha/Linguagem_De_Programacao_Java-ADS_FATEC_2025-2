@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS projeto_p1;
-CREATE DATABASE projeto_p1;
-USE projeto_p1;
+DROP DATABASE IF EXISTS banco_p1;
+CREATE DATABASE banco_p1;
+USE banco_p1;
 
 CREATE TABLE produto(
 	pro_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -10,22 +10,17 @@ CREATE TABLE produto(
     pro_qtdestoque INT
 );
 
-CREATE TABLE clientes(
-	cli_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    cli_nome VARCHAR(60),
-    cli_endereco VARCHAR(100),
-    cli_email VARCHAR(60),
-    cli_telefone INT
-);
-
 CREATE TABLE fornecedores(
 	for_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     for_nome VARCHAR(80),
     for_nomefantasia VARCHAR(80),
-    for_cnpj INT,
-    for_endereco VARCHAR(100),
+    for_cnpj VARCHAR(18),
     for_email VARCHAR(60),
-    for_telefone INT
+    for_telefone VARCHAR(15),
+    for_logradouro VARCHAR(60),
+    for_bairro VARCHAR(60),
+    for_municipio VARCHAR(60),
+    for_uf VARCHAR(2)
 );
 
 CREATE TABLE tipoNota(
@@ -34,9 +29,30 @@ CREATE TABLE tipoNota(
     
 );
 
+CREATE TABLE tipoCliente(
+	tcl_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	tcl_nome VARCHAR(60)
+
+);
+
+CREATE TABLE clientes(
+	cli_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    cli_nome VARCHAR(60),
+    cli_documento VARCHAR(18),
+    cli_email VARCHAR(60),
+    cli_telefone VARCHAR(15),
+    cli_logradouro VARCHAR(60),
+    cli_bairro VARCHAR(60),
+    cli_municipio VARCHAR(60),
+    cli_uf VARCHAR(2),
+    tcl_codigo INT,
+    
+    FOREIGN KEY (tcl_codigo) REFERENCES tipoCliente (tcl_codigo)
+);
+
 CREATE TABLE notas(
-	not_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    not_data DATE,
+	nta_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nta_data DATE,
     cli_codigo INT,
     for_codigo INT,
     tip_codigo INT,
@@ -50,7 +66,13 @@ CREATE TABLE itemNota(
 	itm_codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     itm_quantidade INT,
     pro_codigo INT,
+    nta_codigo INT,
     
-    FOREIGN KEY (pro_codigo) REFERENCES produto (pro_codigo)
+    FOREIGN KEY (pro_codigo) REFERENCES produto (pro_codigo),
+    FOREIGN KEY (nta_codigo) REFERENCES notas (nta_codigo)
+    
 );
 
+
+INSERT INTO tipocliente VALUES (NULL, "Pessoa Física"), (NULL, "Pessoa Juridica");
+INSERT INTO tipoNota VALUES (NULL, "Entrada"), (NULL, "Saída");
